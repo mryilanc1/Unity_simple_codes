@@ -1,0 +1,78 @@
+using System.Collections.Generic;
+using UnityEngine;
+
+
+public class Mover_From_List : MonoBehaviour
+{
+
+    public Transform Main_Object;
+
+    public new List<Transform> test_main = new List<Transform>();
+    public new List<Transform> test_two = new List<Transform>();
+    void Start()
+    {
+
+        var item = test_main[0];
+        test_main.RemoveAt(0);
+        test_main.Add(item);
+         
+        
+        var item2 = test_two[0];
+        test_two.RemoveAt(0);
+        test_two.Add(item);
+        
+
+    }
+
+
+
+    public void delete_add_move()
+    {
+        var item = test_main[0];
+        test_main.RemoveAt(0);
+        test_main.Add(item);
+        
+        
+        var item2 = test_two[0];
+        test_two.RemoveAt(0);
+        test_two.Add(item2);
+        
+        
+    }
+    
+    
+    // Update is called once per frame
+    void Update()
+    {
+
+        if (Input.GetKeyDown( KeyCode.R ))
+        {
+
+            Main_Object.position = test_main[0].position;
+
+        }
+        else if (Input.GetKeyDown( KeyCode.T))
+
+        {
+            Main_Object.position = test_two[0].position;
+   
+            
+        }
+        
+        
+        if (Input.GetKeyDown( KeyCode.Q ))
+        {
+
+            delete_add_move();
+
+        }
+        else if (Input.GetKeyDown( KeyCode.E) )
+        {
+            
+            var item2 = test_two[0];
+            test_two.RemoveAt(0);
+            test_two.Add(item2);
+        }
+        
+    }
+}
